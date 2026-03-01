@@ -1,0 +1,66 @@
+appId: com.google.messages.ubuntu
+productName: Messages
+copyright: Copyright © 2024
+
+directories:
+  output: dist
+  buildResources: assets
+
+files:
+  - src/**/*
+  - assets/**/*
+  - "!**/*.map"
+  - "!node_modules/**"
+
+linux:
+  target:
+    - target: AppImage
+      arch:
+        - x64
+    - target: deb
+      arch:
+        - x64
+  icon: assets/icons
+  category: Network;Chat;InstantMessaging
+  synopsis: Google Messages for Linux
+  description: Google Messages desktop wrapper for Linux with native notifications, system tray, and persistent sessions.
+  desktop:
+    Name: Messages
+    GenericName: Messenger
+    Comment: Google Messages for Linux
+    Keywords: sms;messages;google;chat;rcs
+    StartupWMClass: Messages
+    StartupNotify: true
+  mimeTypes:
+    - x-scheme-handler/sms
+    - x-scheme-handler/tel
+
+protocols:
+  - name: SMS Handler
+    schemes:
+      - sms
+  - name: TEL Handler
+    schemes:
+      - tel
+
+# AppImage specific
+appImage:
+  artifactName: Messages-${version}-${arch}.AppImage
+
+# Debian package
+deb:
+  artifactName: Messages-${version}-${arch}.deb
+  depends:
+    - libnotify4
+    - libxtst6
+    - libnss3
+    - libxss1
+    - libgconf-2-4
+
+# Do not include devDependencies in the package
+npmRebuild: false
+buildDependenciesFromSource: false
+
+# Metadata
+extraMetadata:
+  main: src/main/main.js

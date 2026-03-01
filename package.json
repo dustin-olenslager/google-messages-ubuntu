@@ -1,0 +1,73 @@
+{
+  "name": "google-messages-ubuntu",
+  "productName": "Messages",
+  "version": "1.0.0",
+  "description": "Google Messages desktop app for Linux",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "NODE_ENV=development electron .",
+    "build": "electron-builder",
+    "build:appimage": "electron-builder --linux AppImage",
+    "build:deb": "electron-builder --linux deb",
+    "generate-icons": "node scripts/generate-icons.js"
+  },
+  "keywords": [
+    "google",
+    "messages",
+    "sms",
+    "electron",
+    "linux"
+  ],
+  "author": "Dustin",
+  "license": "MIT",
+  "dependencies": {
+    "electron-auto-launch": "^5.0.6",
+    "electron-log": "^5.1.2",
+    "electron-store": "^8.2.0"
+  },
+  "devDependencies": {
+    "electron": "^29.1.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.google.messages.ubuntu",
+    "productName": "Messages",
+    "files": [
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "assets/icons",
+      "category": "Network;Chat;InstantMessaging",
+      "desktop": {
+        "Name": "Messages",
+        "Comment": "Google Messages for Linux",
+        "Keywords": "sms;messages;google;chat",
+        "StartupWMClass": "Messages"
+      },
+      "mimeTypes": [
+        "x-scheme-handler/sms",
+        "x-scheme-handler/tel"
+      ]
+    },
+    "protocols": [
+      {
+        "name": "SMS protocol",
+        "schemes": [
+          "sms"
+        ]
+      },
+      {
+        "name": "TEL protocol",
+        "schemes": [
+          "tel"
+        ]
+      }
+    ]
+  }
+}

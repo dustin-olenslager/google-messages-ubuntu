@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="#1a73e8"/>
+
+  <!-- Message bubble shape (Google Messages style) -->
+  <path d="M128 160 C128 137.9 145.9 120 168 120 L344 120 C366.1 120 384 137.9 384 160 L384 296 C384 318.1 366.1 336 344 336 L296 336 L256 392 L216 336 L168 336 C145.9 336 128 318.1 128 296 Z"
+        fill="white"/>
+
+  <!-- Three dots inside bubble -->
+  <circle cx="188" cy="228" r="18" fill="#1a73e8"/>
+  <circle cx="256" cy="228" r="18" fill="#1a73e8"/>
+  <circle cx="324" cy="228" r="18" fill="#1a73e8"/>
+</svg>
